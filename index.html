@@ -286,53 +286,31 @@
         <div class="footer">I love you with my whole heart.</div>
     </div>
     
-    <div class="audio-control" onclick="toggleAudio()">♪ Click for ambience</div>
+<audio id="backgroundMusic" loop>
+    <source src="falling in love.mp3" type="audio/mpeg">
+    <source src="falling in love.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+
+<div class="audio-control" onclick="toggleAudio()">♪ Click for music</div>
     
     <script>
-        let audioContext;
-        let isPlaying = false;
+    let audio = document.getElementById('backgroundMusic');
+    let isPlaying = false;
+    
+    function toggleAudio() {
+        const button = document.querySelector('.audio-control');
         
-        function toggleAudio() {
-            const button = document.querySelector('.audio-control');
-            
-            if (!isPlaying) {
-                // Create a simple ambient soundscape using Web Audio API
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                
-                // Create subtle ambient tones
-                createAmbientTone(220, 0.02); // Low A
-                createAmbientTone(329.63, 0.015); // E
-                createAmbientTone(440, 0.01); // A
-                
-                button.textContent = '♪ Playing softly...';
-                isPlaying = true;
-            } else {
-                audioContext.close();
-                button.textContent = '♪ Click for ambience';
-                isPlaying = false;
-            }
+        if (!isPlaying) {
+            audio.play();
+            button.textContent = '♪ Playing softly...';
+            isPlaying = true;
+        } else {
+            audio.pause();
+            button.textContent = '♪ Click for music';
+            isPlaying = false;
         }
-        
-        function createAmbientTone(frequency, volume) {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-            oscillator.type = 'sine';
-            
-            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-            gainNode.gain.linearRampToValueAtTime(volume, audioContext.currentTime + 3);
-            
-            // Add subtle variations
-            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime + 5);
-            oscillator.frequency.linearRampToValueAtTime(frequency * 1.01, audioContext.currentTime + 15);
-            oscillator.frequency.linearRampToValueAtTime(frequency, audioContext.currentTime + 30);
-            
-            oscillator.start();
-        }
+    }
     </script>
 </body>
 </html>
