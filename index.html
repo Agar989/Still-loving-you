@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I love you forever</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <title>Still loving you</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant..." rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Cormorant Garamond', serif;
             background-color: #1e1a17;
@@ -24,7 +24,7 @@
             position: relative;
             overflow-x: hidden;
         }
-
+        
         /* Subtle animated background glow */
         body::before {
             content: '';
@@ -46,7 +46,7 @@
             animation: gentleGlow 12s ease-in-out infinite alternate;
             z-index: -1;
         }
-
+        
         @keyframes gentleGlow {
             0% {
                 transform: translate(-2%, -2%) scale(1);
@@ -57,7 +57,7 @@
                 opacity: 0.7;
             }
         }
-
+        
         /* Flickering candle effect */
         .candle-glow {
             position: fixed;
@@ -75,7 +75,7 @@
             animation: candleFlicker 3s ease-in-out infinite alternate;
             z-index: 1;
         }
-
+        
         @keyframes candleFlicker {
             0%, 100% {
                 transform: scale(1) translateY(0);
@@ -94,14 +94,14 @@
                 opacity: 0.7;
             }
         }
-
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
-
+        
         .title {
             text-align: center;
             font-size: clamp(2rem, 5vw, 3.5rem);
@@ -112,7 +112,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: 1px;
         }
-
+        
         .letter-frame {
             background: linear-gradient(135deg, #2a251f 0%, #1f1b16 100%);
             border: 2px solid #8b744d;
@@ -125,7 +125,7 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.1),
                 0 0 0 1px rgba(139, 116, 77, 0.3);
         }
-
+        
         /* Aged paper effect */
         .letter-frame::before {
             content: '';
@@ -141,7 +141,7 @@
             border-radius: 6px;
             pointer-events: none;
         }
-
+        
         /* Decorative corners */
         .letter-frame::after {
             content: '';
@@ -154,7 +154,7 @@
             border-radius: 4px;
             pointer-events: none;
         }
-
+        
         .letter-content {
             font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             line-height: 1.8;
@@ -162,12 +162,12 @@
             position: relative;
             z-index: 1;
         }
-
+        
         .letter-content p {
             margin-bottom: 1.5rem;
             text-align: justify;
         }
-
+        
         .letter-content p:first-child::first-letter {
             float: left;
             font-size: 4rem;
@@ -178,7 +178,7 @@
             color: #d4c4a0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-
+        
         .signature {
             text-align: right;
             font-size: 1.4rem;
@@ -187,7 +187,7 @@
             color: #d4c4a0;
             font-weight: 400;
         }
-
+        
         .footer {
             text-align: center;
             margin-top: 3rem;
@@ -196,7 +196,7 @@
             color: #9a8b6b;
             opacity: 0.8;
         }
-
+        
         .audio-control {
             position: fixed;
             bottom: 2rem;
@@ -212,13 +212,13 @@
             font-size: 0.9rem;
             backdrop-filter: blur(10px);
         }
-
+        
         .audio-control:hover {
             background: rgba(139, 116, 77, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-
+        
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             body {
@@ -244,7 +244,7 @@
                 font-size: 0.8rem;
             }
         }
-
+        
         @media (max-width: 480px) {
             .letter-content p:first-child::first-letter {
                 font-size: 3rem;
