@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #1e1a17;
+    color: #e8dcc0;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Subtle animated background glow */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at 30% 40%, 
+        rgba(139, 116, 77, 0.05) 0%, 
+        transparent 50%
+    ),
+    radial-gradient(
+        circle at 70% 60%, 
+        rgba(184, 134, 82, 0.03) 0%, 
+        transparent 50%
+    );
+    animation: gentleGlow 12s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes gentleGlow {
+    0% {
+        transform: translate(-2%, -2%) scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(2%, 2%) scale(1.05);
+        opacity: 0.7;
+    }
+}
+
+/* Flickering candle effect */
+.candle-glow {
+    position: fixed;
+    top: 10%;
+    right: 8%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 200, 87, 0.4) 0%,
+        rgba(255, 156, 47, 0.2) 30%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: candleFlicker 3s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes candleFlicker {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+        opacity: 0.6;
+    }
+    25% {
+        transform: scale(1.1) translateY(-2px);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.95) translateY(1px);
+        opacity: 0.5;
+    }
+    75% {
+        transform: scale(1.05) translateY(-1px);
+        opacity: 0.7;
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 3rem;
+    color: #d4c4a0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.letter-frame {
+    background: linear-gradient(135deg, #2a251f 0%, #1f1b16 100%);
+    border: 2px solid #8b744d;
+    border-radius: 8px;
+    padding: 3rem 2.5rem;
+    margin: 2rem auto;
+    position: relative;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(139, 116, 77, 0.3);
+}
+
+/* Aged paper effect */
+.letter-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(139, 116, 77, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(184, 134, 82, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(101, 67, 33, 0.05) 0%, transparent 50%);
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+/* Decorative corners */
+.letter-frame::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(139, 116, 77, 0.2);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.letter-content {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    line-height: 1.8;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+}
+
+.letter-content p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.letter-content p:first-child::first-letter {
+    float: left;
+    font-size: 4rem;
+    line-height: 3rem;
+    padding-right: 8px;
+    padding-top: 4px;
+    font-weight: 400;
+    color: #d4c4a0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.signature {
+    text-align: right;
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-top: 2rem;
+    color: #d4c4a0;
+    font-weight: 400;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #9a8b6b;
+    opacity: 0.8;
+}
+
+.audio-control {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background: rgba(139, 116, 77, 0.2);
+    border: 1px solid rgba(139, 116, 77, 0.4);
+    border-radius: 50px;
+    padding: 0.8rem 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: #e8dcc0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+.audio-control:hover {
+    background: rgba(139, 116, 77, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    
+    .letter-frame {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .candle-glow {
+        width: 40px;
+        height: 40px;
+        top: 5%;
+        right: 5%;
+    }
+    
+    .audio-control {
+        bottom: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter-content p:first-child::first-letter {
+        font-size: 3rem;
+        line-height: 2.5rem;
+    }
+}
